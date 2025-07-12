@@ -1,6 +1,16 @@
 export default async function handler(req, res) {
     const appScriptUrl = 'https://script.google.com/macros/s/AKfycbzuDD1-ScYRgGFfD8951XU0VtJIu3Rm3BBF0nFYBe0SuWN_jZc9pINjm2YAo8Xh1g/exec';
 //?func=doLogin&group=buckeyepickers&password=scarlet2025
+    console.log('Checking request method:', method);
+    if (req.method === 'OPTIONS') {
+        console.log('Handling preflight request');
+        // Handle preflight request for CORS
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        return res.status(200).end();
+    }
+
     try {
         const response = await fetch(appScriptUrl);
         const data = await response.text();
