@@ -10,5 +10,5 @@ const proxy = createProxyMiddleware({
 });
 
 module.exports = (req, res) => {
-  return proxy(req, res);
+  proxy(req, res);
 };
