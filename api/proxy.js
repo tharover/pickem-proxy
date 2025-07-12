@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
-    const appScriptUrl = 'https://script.google.com/macros/s/AKfycbwPMF0tBSsCmm19z3pEN2yiXc1oXINfsu1-a-JYJ8-L9qn4w_0RDrNzWW7fNCZaelH-/exec';
-
+    const appScriptUrl = 'https://script.google.com/macros/s/AKfycbzuDD1-ScYRgGFfD8951XU0VtJIu3Rm3BBF0nFYBe0SuWN_jZc9pINjm2YAo8Xh1g/exec';
+//?func=doLogin&group=buckeyepickers&password=scarlet2025
     try {
         const response = await fetch(appScriptUrl);
         const data = await response.text();
