@@ -1,13 +1,16 @@
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    const appScriptUrl = 'https://script.google.com/macros/s/AKfycbwPMF0tBSsCmm19z3pEN2yiXc1oXINfsu1-a-JYJ8-L9qn4w_0RDrNzWW7fNCZaelH-/exec';
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+    try {
+        const response = await fetch(appScriptUrl);
+        const data = await response.text();
 
-  res.status(200).json({ status: 'proxy alive' });
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.status(200).send(data);
+    } catch (err) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.status(500).json({ error: 'Proxy failed', details: err.message });
+    }
 }
 /*
 import fetch from 'node-fetch';
