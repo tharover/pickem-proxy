@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 export default async function handler(req, res) {
     const { url, method } = req;
     const appScriptUrl = 'https://script.google.com/macros/s/AKfycbwPMF0tBSsCmm19z3pEN2yiXc1oXINfsu1-a-JYJ8-L9qn4w_0RDrNzWW7fNCZaelH-/exec';
