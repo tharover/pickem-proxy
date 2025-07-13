@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-    console.log('Starting proxy handler');
+    console.log('Starting proxy handler v2');
     const appScriptBase = 'https://script.google.com/macros/s/AKfycbzuDD1-ScYRgGFfD8951XU0VtJIu3Rm3BBF0nFYBe0SuWN_jZc9pINjm2YAo8Xh1g/exec';
     const query = req.url.split('?')[1] || '';
     const targetUrl = `${appScriptBase}?${query}`;
