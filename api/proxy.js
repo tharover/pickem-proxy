@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
     console.log('Starting proxy handler v2');
     const appScriptDeploymentId = 'AKfycbzhsj_DMdeED3a33e1gWI6tGuCcouqZJAm4pjSjVU3_14ivLzUkXrGHwyA7NNciSXvg';
-    const appScriptUrl = `https://script.google.com/macros/s/${appScriptDeploymentId}/exec`;
+    const appScriptBase = `https://script.google.com/macros/s/${appScriptDeploymentId}/exec`;
     const query = req.url.split('?')[1] || '';
     const targetUrl = `${appScriptBase}?${query}`;
 
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         }
 
         console.log('Fetching target URL:', targetUrl);
-        const response = await fetch(appScriptUrl, {
+        const response = await fetch(targetUrl, {
             method: req.method,
             headers,
             body: req.method === 'POST' ? JSON.stringify(req.body) : undefined
