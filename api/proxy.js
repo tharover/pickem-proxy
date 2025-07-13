@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+    console.log('Starting proxy handler');
     const appScriptUrl = 'https://script.google.com/macros/s/AKfycbzuDD1-ScYRgGFfD8951XU0VtJIu3Rm3BBF0nFYBe0SuWN_jZc9pINjm2YAo8Xh1g/exec';
 //?func=doLogin&group=buckeyepickers&password=scarlet2025
     console.log('Checking request method:', req.method);
