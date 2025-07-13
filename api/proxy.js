@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     try {
         const response = await fetch(appScriptUrl);
         const data = await response.text();
-
+        console.log('Response data:', data);
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.status(200).send(data);
     } catch (err) {
