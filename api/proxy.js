@@ -30,7 +30,6 @@ export default async function handler(req, res) {
 
         console.log('Fetching target URL:', targetUrl);
         const response = await fetch(targetUrl, { method: req.method, headers });
-        console.log('Received response from target URL:', response.text());
         const data = await response.text();
 
         console.log('Response data:', data);
