@@ -30,7 +30,12 @@ export default async function handler(req, res) {
         }
 
         console.log('Fetching target URL:', targetUrl);
-        const response = await fetch(targetUrl, { method: req.method, headers });
+        const response = await fetch(appScriptUrl, {
+            method: req.method,
+            headers,
+            body: req.method === 'POST' ? JSON.stringify(req.body) : undefined
+        });
+
         const data = await response.text();
 
         console.log('Response data:', data);
